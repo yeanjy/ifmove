@@ -1,0 +1,6 @@
+*.o
+matrix_test
+particle_test
+window_test
+vector3_test
+doc/**
