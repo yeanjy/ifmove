@@ -5,9 +5,9 @@ using namespace std;
 #include "gmesh2.h"
 #include "window.h"
 #include <vector>
-#include <vector3.h>
+#include "vector3.h"
 
-class FormaComposta : public GMesh2
+class FormaComposta 
 {
     public: 
         FormaComposta();
@@ -16,16 +16,7 @@ class FormaComposta : public GMesh2
 
         vector<GMesh2> formas;
         Vector3<double> center;
-        
-
-
 };
-
-
-
-
-
-
 
 
 #endif
