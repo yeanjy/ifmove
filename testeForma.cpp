@@ -39,19 +39,26 @@ int main()
     translate.a[1][2] = 0.05;
     */
 
-    GSquare square{Vector3<double>{50, 50, 1.0f}, 75, 
-        RGBA<unsigned char>{0xff, 0xff, 0x0, 0x99}};
+    double car_height = 250;
 
-    GTriangle triangle{
-        Vector3<double>{0, 0, 1.0f}, 
-        Vector3<double>{-150, -50, 1.0f}, 
-        Vector3<double>{+150, -50, 1.0f} };
+    GSquare square0{Vector3<double>{-car_height, car_height/2, 1.0f}, car_height, 
+        RGBA<unsigned char>{0xff, 0xff, 0x0, 0x99}};
+    GSquare square1{Vector3<double>{0, car_height/2, 1.0f}, car_height, 
+        RGBA<unsigned char>{0xff, 0xff, 0x0, 0x99}};
+    GCircle wheel0{Vector3<double>{-car_height/2, -car_height/2, 1.0f}, car_height/4, 30, 
+        RGBA<unsigned char>{0xff, 0xff, 0x0, 0x99}};
+    GCircle wheel1{Vector3<double>{car_height/2, -car_height/2, 1.0f}, car_height/4 , 30,
+        RGBA<unsigned char>{0xff, 0xff, 0x0, 0x99}};
+    GCircle circle{Vector3<double>{0,0,1}, 15};
 
     FormaComposta forma{};
     forma.center = Vector3<double>{+150, -50, 1.0f};
     forma.rotate = 0;
-    forma.addForma(triangle, 3.14);
-    forma.addForma(square, 3.14*0.25);
+    forma.addForma(square0);
+    forma.addForma(square1);
+    forma.addForma(wheel0);
+    forma.addForma(wheel1);
+    forma.addForma(circle);
     // new scope to control when the window w will be destroyed
     {
         Window w(WIDTH, HEIGHT);
@@ -86,25 +93,22 @@ int main()
                         forma.center += Vector3<double>{0, -10, 0};
 
                     if (e.key.keysym.sym == SDLK_r)
-                        forma.rotate += 0.1;
+                        forma.rotate += 0.03;
                     if (e.key.keysym.sym == SDLK_t)
-                        forma.rotate -= 0.1;
+                        forma.rotate -= 0.03;
 
                     if (e.key.keysym.sym == SDLK_s)
-                        forma.shear_x -= 0.01;
+                        forma.shear_x -= .1;
                     if (e.key.keysym.sym == SDLK_x)
-                        forma.shear_y -= 0.01;
+                        forma.shear_y -= .1;
                     if (e.key.keysym.sym == SDLK_d)
-                        forma.shear_x += 0.01;
+                        forma.shear_x += .1;
                     if (e.key.keysym.sym == SDLK_c)
-                        forma.shear_y += 0.01;
-
-
+                        forma.shear_y += .1;
                 }
             }
             // clear surface before draw
             w.clear();
-
 
             // control rotation speed of line
             angle += 0.003;

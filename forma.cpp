@@ -27,13 +27,15 @@ void FormaComposta::draw(Window &window)
 
     for (int i =0 ; i < formas.size(); i++)
     {
+        // Vector3<double> position = formas[i].c;
+
         Matrix<double> my_rotation = Matrix<double>::identity(3);
         my_rotation.a[0][0] = cos(rotations[i]);
         my_rotation.a[0][1] = -sin(rotations[i]);
         my_rotation.a[1][0] = sin(rotations[i]);
         my_rotation.a[1][1] = cos(rotations[i]);
 
-        formas[i].draw(window, translate*rotation*my_rotation*shearing); 
+        formas[i].draw(window, translate*my_rotation*rotation*shearing); 
       
     }
     cout << shear_x << "\n" << shear_y << "\n";
