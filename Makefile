@@ -3,7 +3,7 @@
 CXX=g++
 CXXFLAGS=-g $(shell pkg-config sdl2 --cflags) 
 SDL_LIBS=$(shell pkg-config sdl2 --libs) 
-EXECUTABLES=matrix_test vector3_test window_test particle_test acceleration_test
+EXECUTABLES=matrix_test vector3_test window_test particle_test acceleration_test testeForma
 
 all: $(EXECUTABLES)
 
@@ -22,9 +22,8 @@ acceleration_test: acceleration_test.cpp sdl.o window.o gcircle.o graphics.o mes
 particle_test: particle_test.cpp particle.o 
 	$(CXX) particle_test.cpp particle.o -o particle_test
 
-testeforma: testeForma.cpp sdl.o window.o gcircle.o graphics.o mesh2.o gmesh2.o grid.o particle.o gparticle.o arrow2.o mesh2_utils.o gsquare.o gtriangle.o forma.o
+testeForma: testeForma.cpp sdl.o window.o gcircle.o graphics.o mesh2.o gmesh2.o grid.o particle.o gparticle.o arrow2.o mesh2_utils.o gsquare.o gtriangle.o forma.o
 	$(CXX) $(CXXFLAGS) testeForma.cpp sdl.o window.o gcircle.o graphics.o mesh2.o gmesh2.o grid.o particle.o gparticle.o arrow2.o mesh2_utils.o gsquare.o gtriangle.o forma.o -o testeForma $(SDL_LIBS)
- 
 
 doc:
 	doxygen

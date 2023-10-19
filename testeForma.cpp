@@ -48,9 +48,10 @@ int main()
         Vector3<double>{+150, -50, 1.0f} };
 
     FormaComposta forma{};
-    forma.center = Vector3<double>{+150, -50, 1.0f}; 
-    forma.addForma(triangle);
-    forma.addForma(square);
+    forma.center = Vector3<double>{+150, -50, 1.0f};
+    forma.rotate = 0;
+    forma.addForma(triangle, 3.14);
+    forma.addForma(square, 3.14*0.25);
     // new scope to control when the window w will be destroyed
     {
         Window w(WIDTH, HEIGHT);
@@ -75,16 +76,39 @@ int main()
                     // pressing q will exit the main loop
                     if (e.key.keysym.sym == SDLK_q)
                         quit = true;
+                    if (e.key.keysym.sym == SDLK_LEFT)
+                        forma.center += Vector3<double>{-10, 0, 0};
+                    if (e.key.keysym.sym == SDLK_RIGHT)
+                        forma.center += Vector3<double>{10, 0, 0};
+                    if (e.key.keysym.sym == SDLK_UP)
+                        forma.center += Vector3<double>{0, 10, 0};
+                    if (e.key.keysym.sym == SDLK_DOWN)
+                        forma.center += Vector3<double>{0, -10, 0};
+
+                    if (e.key.keysym.sym == SDLK_r)
+                        forma.rotate += 0.1;
+                    if (e.key.keysym.sym == SDLK_t)
+                        forma.rotate -= 0.1;
+
+                    if (e.key.keysym.sym == SDLK_s)
+                        forma.shear_x -= 0.01;
+                    if (e.key.keysym.sym == SDLK_x)
+                        forma.shear_y -= 0.01;
+                    if (e.key.keysym.sym == SDLK_d)
+                        forma.shear_x += 0.01;
+                    if (e.key.keysym.sym == SDLK_c)
+                        forma.shear_y += 0.01;
+
+
                 }
             }
             // clear surface before draw
             w.clear();
 
-            forma.center += Vector3<double>{1, 1, 0};
 
             // control rotation speed of line
             angle += 0.003;
-
+            
             forma.draw(w);
 
 

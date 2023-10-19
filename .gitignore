@@ -3,4 +3,7 @@ matrix_test
 particle_test
 window_test
 vector3_test
+.vscode/
+testeForma
+acceleration_test
 doc/**
