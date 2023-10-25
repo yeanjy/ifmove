@@ -4,6 +4,6 @@ particle_test
 window_test
 vector3_test
 .vscode/
-testeForma
+shape_test
 acceleration_test
 doc/**
