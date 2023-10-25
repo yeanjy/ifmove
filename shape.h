@@ -1,11 +1,13 @@
 #ifndef J1_FORMA_H1
 #define J1_FORMA_H1
+
 #include <iostream>
-using namespace std;
+#include <vector>
+
 #include "gmesh2.h"
 #include "window.h"
-#include <vector>
 #include "vector3.h"
+using namespace std;
 
 class CompoundShape 
 {

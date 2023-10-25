@@ -1,6 +1,6 @@
-#include <cmath>
 #include <iostream>
-using namespace std;
+#include <cmath>
+
 #include "shape.h"
 #include "window.h"
 #include "sdl.h"
@@ -10,6 +10,7 @@ using namespace std;
 #include "gparticle.h"
 #include "gtriangle.h"
 #include "vector3.h"
+using namespace std;
 
 #define WIDTH 1200
 #define HEIGHT 800
@@ -23,10 +24,6 @@ int main()
 
     // Event handler, it'll handle keyboard and mouse events
     SDL_Event e;
-
-    double angle = 0.0;
-    double t = 0;
-    double dt = 4.0/10000.0;
 
     /*
     GCircle gcircle{Vector3<double>{-250, -250}, 50, 30, 
@@ -110,18 +107,13 @@ int main()
             // clear surface before draw
             w.clear();
 
-            // control rotation speed of line
-            angle += 0.003;
-            
             shape.draw(w);
 
 
             // update renderer
             w.update();
-             t += dt;
-        } // end of main loop
-    } // end of a scope of window
+        } 
+    } 
 
-    // return no error to the operating system
     return 0;
 }

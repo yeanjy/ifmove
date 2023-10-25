@@ -1,8 +1,9 @@
-#include "shape.h"
 #include <iostream>
 #include <cmath>
-using namespace std;
+
+#include "shape.h"
 #include "matrix.h"
+using namespace std;
 
 CompoundShape::CompoundShape()
 {}
