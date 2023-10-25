@@ -1,13 +1,13 @@
-#include "forma.h"
+#include "shape.h"
 #include <iostream>
 #include <cmath>
 using namespace std;
 #include "matrix.h"
 
-FormaComposta::FormaComposta()
+CompoundShape::CompoundShape()
 {}
 
-void FormaComposta::draw(Window &window)
+void CompoundShape::draw(Window &window)
 {
     Matrix<double> translate = Matrix<double>::identity(3);
     translate.a[0][2] = center.x();
@@ -25,9 +25,9 @@ void FormaComposta::draw(Window &window)
 
 
 
-    for (int i =0 ; i < formas.size(); i++)
+    for (int i =0 ; i < shapes.size(); i++)
     {
-        // Vector3<double> position = formas[i].c;
+        // Vector3<double> position = shapes[i].c;
 
         Matrix<double> my_rotation = Matrix<double>::identity(3);
         my_rotation.a[0][0] = cos(rotations[i]);
@@ -35,17 +35,17 @@ void FormaComposta::draw(Window &window)
         my_rotation.a[1][0] = sin(rotations[i]);
         my_rotation.a[1][1] = cos(rotations[i]);
 
-        formas[i].draw(window, translate*my_rotation*rotation*shearing); 
+        shapes[i].draw(window, translate*my_rotation*rotation*shearing); 
       
     }
     cout << shear_x << "\n" << shear_y << "\n";
 }
 
-void FormaComposta::addForma(GMesh2 &forma, double rotation)
+void CompoundShape::addShape(GMesh2 &shape, double rotation)
 {
-    formas.push_back(forma);
+    shapes.push_back(shape);
     rotations.push_back(rotation);
-    cout << "adicionando forma\n";
+    cout << "adicionando shape\n";
 }
 
 

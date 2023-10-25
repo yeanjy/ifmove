@@ -1,7 +1,7 @@
 #include <cmath>
 #include <iostream>
 using namespace std;
-#include "forma.h"
+#include "shape.h"
 #include "window.h"
 #include "sdl.h"
 #include "gcircle.h"
@@ -51,14 +51,14 @@ int main()
         RGBA<unsigned char>{0xff, 0xff, 0x0, 0x99}};
     GCircle circle{Vector3<double>{0,0,1}, 15};
 
-    FormaComposta forma{};
-    forma.center = Vector3<double>{+150, -50, 1.0f};
-    forma.rotate = 0;
-    forma.addForma(square0);
-    forma.addForma(square1);
-    forma.addForma(wheel0);
-    forma.addForma(wheel1);
-    forma.addForma(circle);
+    CompoundShape shape{};
+    shape.center = Vector3<double>{+150, -50, 1.0f};
+    shape.rotate = 0;
+    shape.addShape(square0);
+    shape.addShape(square1);
+    shape.addShape(wheel0);
+    shape.addShape(wheel1);
+    shape.addShape(circle);
     // new scope to control when the window w will be destroyed
     {
         Window w(WIDTH, HEIGHT);
@@ -84,27 +84,27 @@ int main()
                     if (e.key.keysym.sym == SDLK_q)
                         quit = true;
                     if (e.key.keysym.sym == SDLK_LEFT)
-                        forma.center += Vector3<double>{-10, 0, 0};
+                        shape.center += Vector3<double>{-10, 0, 0};
                     if (e.key.keysym.sym == SDLK_RIGHT)
-                        forma.center += Vector3<double>{10, 0, 0};
+                        shape.center += Vector3<double>{10, 0, 0};
                     if (e.key.keysym.sym == SDLK_UP)
-                        forma.center += Vector3<double>{0, 10, 0};
+                        shape.center += Vector3<double>{0, 10, 0};
                     if (e.key.keysym.sym == SDLK_DOWN)
-                        forma.center += Vector3<double>{0, -10, 0};
+                        shape.center += Vector3<double>{0, -10, 0};
 
                     if (e.key.keysym.sym == SDLK_r)
-                        forma.rotate += 0.03;
+                        shape.rotate += 0.03;
                     if (e.key.keysym.sym == SDLK_t)
-                        forma.rotate -= 0.03;
+                        shape.rotate -= 0.03;
 
                     if (e.key.keysym.sym == SDLK_s)
-                        forma.shear_x -= .1;
+                        shape.shear_x -= .1;
                     if (e.key.keysym.sym == SDLK_x)
-                        forma.shear_y -= .1;
+                        shape.shear_y -= .1;
                     if (e.key.keysym.sym == SDLK_d)
-                        forma.shear_x += .1;
+                        shape.shear_x += .1;
                     if (e.key.keysym.sym == SDLK_c)
-                        forma.shear_y += .1;
+                        shape.shear_y += .1;
                 }
             }
             // clear surface before draw
@@ -113,7 +113,7 @@ int main()
             // control rotation speed of line
             angle += 0.003;
             
-            forma.draw(w);
+            shape.draw(w);
 
 
             // update renderer

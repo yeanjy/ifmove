@@ -7,14 +7,14 @@ using namespace std;
 #include <vector>
 #include "vector3.h"
 
-class FormaComposta 
+class CompoundShape 
 {
     public: 
-        FormaComposta();
+        CompoundShape();
         void draw(Window &w);
-        void addForma(GMesh2 &forma, double rotation = 0.0);
+        void addShape(GMesh2 &shape, double rotation = 0.0);
 
-        vector<GMesh2> formas;
+        vector<GMesh2> shapes;
         Vector3<double> center;
         double rotate;
         double shear_x;
