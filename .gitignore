@@ -6,4 +6,5 @@ vector3_test
 .vscode/
 shape_test
 acceleration_test
+game_test
 doc/**
