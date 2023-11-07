@@ -6,6 +6,8 @@ game::game()
 
 void game::draw(Window &window)
 {
+    mainCircle.draw(window);
+
     for (int i = 0; i < circles.size(); i++)
     {
         circles[i].draw(window);

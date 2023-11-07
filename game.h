@@ -15,6 +15,7 @@ public:
     void addCircle (GCircle &circle);
 
     vector<GCircle> circles;
+    GCircle mainCircle{Vector3<double>{0, 0, 1.0f}, 30, 100};
 };
 
 
