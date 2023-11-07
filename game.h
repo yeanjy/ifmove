@@ -14,8 +14,8 @@ public:
     void draw(Window &window);
     void addCircle (GCircle &circle);
 
+    GCircle main{Vector3<double>{0, 0, 1.0f}, 30, 100};
     vector<GCircle> circles;
-    GCircle mainCircle{Vector3<double>{0, 0, 1.0f}, 30, 100};
 };
 
 

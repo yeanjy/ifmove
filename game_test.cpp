@@ -32,6 +32,8 @@ int main()
 
     game game1{};
 
+    game1.main = GCircle{Vector3<double>{0, 0, 1.0f}, 30, 100};
+    
     game1.addCircle(circle1);
     game1.addCircle(circle2);   
     game1.addCircle(circle3);
@@ -46,6 +48,7 @@ int main()
         transform.a[0][2] = WIDTH/2;
         transform.a[1][2] = HEIGHT/2;
         
+
         w.transform(transform);
         while (!quit) 
         {
@@ -58,12 +61,21 @@ int main()
                 {       
                     if (e.key.keysym.sym == SDLK_q)
                         quit = true;
+                    if (e.key.keysym.sym == SDLK_UP)
+                        game1.main.c += Vector3<double>{5, 0, 0};
+                    if (e.key.keysym.sym == SDLK_DOWN)
+                        game1.main.c += Vector3<double>{-5, 0, 0};
+                    if (e.key.keysym.sym == SDLK_LEFT)
+                        game1.main.c += Vector3<double>{0, -5, 0};
+                    if (e.key.keysym.sym == SDLK_RIGHT)
+                        game1.main.c += Vector3<double>{0, -5, 0};
                 }
             }
             w.clear();
 
+            cout << game1.main.c << endl;
             game1.draw(w);
-
+            
             w.update();
         } 
     } 
