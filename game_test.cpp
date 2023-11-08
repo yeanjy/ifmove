@@ -62,19 +62,20 @@ int main()
                     if (e.key.keysym.sym == SDLK_q)
                         quit = true;
                     if (e.key.keysym.sym == SDLK_UP)
-                        game1.main.c += Vector3<double>{10, 0, 0};
-                    if (e.key.keysym.sym == SDLK_DOWN)
-                        game1.main.c += Vector3<double>{-10, 0, 0};
-                    if (e.key.keysym.sym == SDLK_LEFT)
-                        game1.main.c += Vector3<double>{0, -10, 0};
-                    if (e.key.keysym.sym == SDLK_RIGHT)
                         game1.main.c += Vector3<double>{0, 10, 0};
+                    if (e.key.keysym.sym == SDLK_DOWN)
+                        game1.main.c += Vector3<double>{0, -10, 0};
+                    if (e.key.keysym.sym == SDLK_LEFT)
+                        game1.main.c += Vector3<double>{-10, 0, 0};
+                    if (e.key.keysym.sym == SDLK_RIGHT)
+                        game1.main.c += Vector3<double>{10, 0, 0};
                 }
             }
             w.clear();
 
-            cout << game1.main.c << endl;
+            // cout << game1.main.c << endl;
             game1.draw(w);
+            game1.checkCollision();
             
             w.update();
         } 
