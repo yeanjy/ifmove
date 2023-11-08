@@ -7,9 +7,9 @@ game::game()
 void game::draw(Window &window)
 {
     Matrix<double> translate = Matrix<double>::identity(3);
-    translate.a[0][2] = main.c.x();
-    translate.a[1][2] = main.c.y();
-    main.draw(window);
+    translate.a[0][2] = main.c.y();
+    translate.a[1][2] = main.c.x();
+    main.draw(window, translate);
     for (int i = 0; i < circles.size(); i++)
     {
         circles[i].draw(window);

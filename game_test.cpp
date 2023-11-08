@@ -62,13 +62,13 @@ int main()
                     if (e.key.keysym.sym == SDLK_q)
                         quit = true;
                     if (e.key.keysym.sym == SDLK_UP)
-                        game1.main.c += Vector3<double>{5, 0, 0};
+                        game1.main.c += Vector3<double>{10, 0, 0};
                     if (e.key.keysym.sym == SDLK_DOWN)
-                        game1.main.c += Vector3<double>{-5, 0, 0};
+                        game1.main.c += Vector3<double>{-10, 0, 0};
                     if (e.key.keysym.sym == SDLK_LEFT)
-                        game1.main.c += Vector3<double>{0, -5, 0};
+                        game1.main.c += Vector3<double>{0, -10, 0};
                     if (e.key.keysym.sym == SDLK_RIGHT)
-                        game1.main.c += Vector3<double>{0, -5, 0};
+                        game1.main.c += Vector3<double>{0, 10, 0};
                 }
             }
             w.clear();
