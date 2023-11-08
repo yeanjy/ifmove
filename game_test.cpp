@@ -24,21 +24,21 @@ int main()
 
     SDL_Event e;
 
-    GCircle circle1{Vector3<double>{-300, 350, 1.0f}, 30, 100};
-    GCircle circle2{Vector3<double>{-100, 350, 1.0f}, 30, 100};
-    GCircle circle3{Vector3<double>{100, 350, 1.0f}, 30, 100};
-    GCircle circle4{Vector3<double>{300, 350, 1.0f}, 30, 100};
-    GCircle circle5{Vector3<double>{500, 350, 1.0f}, 30, 100};
+    // GCircle circle1{Vector3<double>{-100, 0, 1.0f}, 30, 100};
+    // GCircle circle2{Vector3<double>{-100, 350, 1.0f}, 30, 100};
+    // GCircle circle3{Vector3<double>{100, 350, 1.0f}, 30, 100};
+    // GCircle circle4{Vector3<double>{300, 350, 1.0f}, 30, 100};
+    // GCircle circle5{Vector3<double>{500, 350, 1.0f}, 30, 100};
 
     game game1{};
 
-    game1.main = GCircle{Vector3<double>{0, 0, 1.0f}, 30, 100};
+    game1.main = GCircle{Vector3<double>{-600, 0, 1.0f}, 30, 100};
     
-    game1.addCircle(circle1);
-    game1.addCircle(circle2);   
-    game1.addCircle(circle3);
-    game1.addCircle(circle4);
-    game1.addCircle(circle5);
+    // game1.addCircle(circle1);
+    // game1.addCircle(circle2);   
+    // game1.addCircle(circle3);
+    // game1.addCircle(circle4);
+    // game1.addCircle(circle5);
 
 
     {
@@ -62,21 +62,28 @@ int main()
                     if (e.key.keysym.sym == SDLK_q)
                         quit = true;
                     if (e.key.keysym.sym == SDLK_UP)
-                        game1.main.c += Vector3<double>{0, 10, 0};
+                    { 
+                        game1.main.move(0, 10);
+                    }
                     if (e.key.keysym.sym == SDLK_DOWN)
-                        game1.main.c += Vector3<double>{0, -10, 0};
+                    { 
+                        game1.main.move(0, -10);
+                    }
                     if (e.key.keysym.sym == SDLK_LEFT)
-                        game1.main.c += Vector3<double>{-10, 0, 0};
+                    { 
+                        game1.main.move(-10, 0);
+                    }
                     if (e.key.keysym.sym == SDLK_RIGHT)
-                        game1.main.c += Vector3<double>{10, 0, 0};
+                    { 
+                        game1.main.move(+10, 0);
+                    }
                 }
             }
             w.clear();
 
-            // cout << game1.main.c << endl;
             game1.draw(w);
-            game1.checkCollision();
-            
+            game1.checkCollision(quit);
+            game1.main.imprimir();
             w.update();
         } 
     } 

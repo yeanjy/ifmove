@@ -6,17 +6,18 @@ game::game()
 
 void game::draw(Window &window)
 {
-    Matrix<double> translate = Matrix<double>::identity(3);
-    translate.a[0][2] = main.c.x();
-    translate.a[1][2] = main.c.y();
+    // Matrix<double> translate = Matrix<double>::identity(3);
+    // translate.a[0][2] = 0;
+    // translate.a[1][2] = 300;
 
-    main.draw(window, translate);
+    main.draw(window);
 
     for (int i = 0; i < circles.size(); i++)
     {
         circles[i].draw(window);
-    }    
+    }
 }
+
 
 void game::addCircle (GCircle &circle)
 {
@@ -32,13 +33,11 @@ bool game::collision(GCircle &a, GCircle &b)
 }
 
 
-void game::checkCollision()
+void game::checkCollision(bool &a)
 {
     for (int i = 0; i < circles.size(); i++)
     {
         if ((game::collision(main, circles[i])))
-            std::cout << "colidiu" << std::endl;
-        else 
-            std::cout << "nao colidiu" << std::endl;
+            a = !a; 
     }
 }

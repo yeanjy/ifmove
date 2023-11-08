@@ -37,6 +37,10 @@ class GCircle: public GMesh2
             const RGBA<unsigned char> &rgba = 
                 RGBA<unsigned char>{0x0, 0xff, 0x0, 0xff});
 
+        void move(double x, double y);
+        void imprimir();
+
+    private:
         /** center */
         Vector3<double> c;
         /** radius */

@@ -11,7 +11,7 @@ class game{
 public:
     game();
     bool collision(GCircle &a, GCircle &b);
-    void checkCollision();
+    void checkCollision(bool &a);
     void draw(Window &window);
     void addCircle (GCircle &circle);
 
