@@ -39,6 +39,7 @@ class GCircle: public GMesh2
 
         void move(double x, double y);
         void imprimir();
+        static bool collision(GCircle &a, GCircle &b);
 
     private:
         /** center */

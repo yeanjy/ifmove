@@ -10,7 +10,6 @@ using namespace std;
 class game{
 public:
     game();
-    bool collision(GCircle &a, GCircle &b);
     void checkCollision(bool &a);
     void draw(Window &window);
     void addCircle (GCircle &circle);

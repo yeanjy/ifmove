@@ -24,21 +24,21 @@ int main()
 
     SDL_Event e;
 
-    // GCircle circle1{Vector3<double>{-100, 0, 1.0f}, 30, 100};
-    // GCircle circle2{Vector3<double>{-100, 350, 1.0f}, 30, 100};
-    // GCircle circle3{Vector3<double>{100, 350, 1.0f}, 30, 100};
-    // GCircle circle4{Vector3<double>{300, 350, 1.0f}, 30, 100};
-    // GCircle circle5{Vector3<double>{500, 350, 1.0f}, 30, 100};
+    GCircle circle1{Vector3<double>{-400, 350, 1.0f}, 30, 100};
+    GCircle circle2{Vector3<double>{-200, 350, 1.0f}, 30, 100};
+    GCircle circle3{Vector3<double>{0, 350, 1.0f}, 30, 100};
+    GCircle circle4{Vector3<double>{200, 350, 1.0f}, 30, 100};
+    GCircle circle5{Vector3<double>{400, 350, 1.0f}, 30, 100};
 
     game game1{};
 
-    game1.main = GCircle{Vector3<double>{-600, 0, 1.0f}, 30, 100};
+    game1.main = GCircle{Vector3<double>{-550, 0, 1.0f}, 30, 100};
     
-    // game1.addCircle(circle1);
-    // game1.addCircle(circle2);   
-    // game1.addCircle(circle3);
-    // game1.addCircle(circle4);
-    // game1.addCircle(circle5);
+    game1.addCircle(circle1);
+    game1.addCircle(circle2);   
+    game1.addCircle(circle3);
+    game1.addCircle(circle4);
+    game1.addCircle(circle5);
 
 
     {

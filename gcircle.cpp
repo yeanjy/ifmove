@@ -22,3 +22,11 @@ void GCircle::imprimir()
 {
     cout << "Centro: " << c << endl;
 }
+
+bool GCircle::collision(GCircle &a, GCircle &b)
+{
+    double distance = sqrt(pow((a.c.x() - b.c.x()), 2) + pow((a.c.y() - b.c.y()), 2));
+    double sumRadii = a.r + b.r;
+
+    return distance <= sumRadii;
+}
