@@ -30,3 +30,13 @@ bool GCircle::collision(GCircle &a, GCircle &b)
 
     return distance <= sumRadii;
 }
+
+bool GCircle::floorCollision(const int &floor, GCircle &a)
+{
+    if (a.c.y() + a.r >= floor/2)
+        return true;        
+    else if (a.c.y() - a.r <= -floor/2)
+        return true;
+    else    
+        return false;
+}
