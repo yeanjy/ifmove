@@ -18,9 +18,17 @@ void GCircle::move(double x, double y)
     Mesh2::transform(translate);
 }
 
+void GCircle::update(GCircle &a)
+{
+    Matrix<double> translate = Matrix<double>::identity(3);
+    translate.a[0][2] = a.c.x();
+    translate.a[1][2] = a.c.y();
+    // Mesh2::transform(translate);
+}
+
 void GCircle::imprimir()
 {
-    cout << "Centro: " << c << endl;
+    cout << c << endl;
 }
 
 bool GCircle::collision(GCircle &a, GCircle &b)
@@ -39,4 +47,42 @@ bool GCircle::floorCollision(const int &floor, GCircle &a)
         return true;
     else    
         return false;
+}
+
+void GCircle::multipleCollision(vector<GCircle> circle)
+{
+    for (int i = 0; i < circle.size(); i++)
+    {
+        for(int j = 0; j < circle.size(); j++)
+        {
+            if (i != j)
+            {
+                if(GCircle::collision(circle[i], circle[j]))
+                {
+                    double distance = sqrt((circle[i].c.x() - circle[j].c.x())*(circle[i].c.x() - circle[j].c.x()) + (circle[i].c.y() - circle[j].c.y())*(circle[i].c.y() - circle[j].c.y()));
+                    double overlap = 0.5f*(distance - circle[i].r - circle[j].r);
+
+                    circle[i].c.a[0][0] -= overlap * (circle[i].c.a[0][0] - circle[j].c.a[0][0]) / distance;
+                    circle[i].c.a[1][0] -= overlap * (circle[i].c.a[1][0] - circle[j].c.a[1][0]) / distance;
+
+                    circle[j].c.a[0][0] += overlap * (circle[i].c.a[0][0] - circle[j].c.a[0][0]) / distance;
+                    circle[j].c.a[1][0] += overlap * (circle[i].c.a[1][0] - circle[j].c.a[1][0]) / distance;
+
+
+                    circle[i].move(circle[i].c.x(), circle[i].c.y());
+                    circle[j].move(circle[j].c.x(), circle[j].c.y());
+                }
+            }
+        }
+    }
+}
+
+double GCircle::getcX(GCircle &a)
+{
+    return a.c.x();
+}
+
+double GCircle::getcY(GCircle &a)
+{
+    return a.c.y();
 }

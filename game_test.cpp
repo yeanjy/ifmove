@@ -34,6 +34,7 @@ int main()
 
     game1.main = GCircle{Vector3<double>{-550, 0, 1.0f}, 30, 100};
     
+    game1.addCircle(game1.main);
     game1.addCircle(circle1);
     game1.addCircle(circle2);   
     game1.addCircle(circle3);
@@ -82,8 +83,7 @@ int main()
             w.clear();
 
             game1.draw(w);
-            game1.checkCollision(quit);
-            game1.main.imprimir();
+            GCircle::multipleCollision(game1.circles);
             w.update();
         } 
     } 

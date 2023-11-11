@@ -41,12 +41,19 @@ class GCircle: public GMesh2
         void imprimir();
         static bool collision(GCircle &a, GCircle &b);
         static bool floorCollision(const int &floor, GCircle &a);
+        static void multipleCollision(vector<GCircle> circle);
+        static void update(GCircle &a);
 
+        double getcX(GCircle &a);
+        double getcY(GCircle &a);
+        
     private:
         /** center */
         Vector3<double> c;
         /** radius */
         double r; 
+        double ax, ay; //aceleration
+        double vx, vy; //velocity
 };
 
 #endif
