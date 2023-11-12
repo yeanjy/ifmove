@@ -14,7 +14,6 @@ void game::draw(Window &window)
     }
 }
 
-
 void game::addCircle (GCircle &circle)
 {
     circles.push_back(circle);
@@ -26,5 +25,15 @@ void game::checkCollision(bool &a)
     {
         if (GCircle::collision(main, circles[i]))
             cout << "colidiu" << endl; 
+    }
+}
+
+void game::update(double dt)
+{
+    for (int i = 0; i < circles.size(); i++)
+    {
+        circles[i].move(0, dt*circles[i].vy);
+        // if (GCircle::floorCollision(800, circles[i]))
+        //     circles[i].move(0, -dt*circles[i].vy);
     }
 }

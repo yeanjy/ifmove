@@ -34,12 +34,16 @@ int main()
 
     game1.main = GCircle{Vector3<double>{-550, 0, 1.0f}, 30, 100};
     
-    game1.addCircle(game1.main);
     game1.addCircle(circle1);
     game1.addCircle(circle2);   
     game1.addCircle(circle3);
     game1.addCircle(circle4);
     game1.addCircle(circle5);
+
+    for (int i = 0; i < game1.circles.size(); i++)
+    {
+        game1.circles[i].vy = 100.0;
+    }
 
 
     {
@@ -81,9 +85,8 @@ int main()
                 }
             }
             w.clear();
-
             game1.draw(w);
-            GCircle::multipleCollision(game1.circles);
+            game1.update(1/60);
             w.update();
         } 
     } 

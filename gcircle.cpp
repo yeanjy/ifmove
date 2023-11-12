@@ -62,15 +62,14 @@ void GCircle::multipleCollision(vector<GCircle> circle)
                     double distance = sqrt((circle[i].c.x() - circle[j].c.x())*(circle[i].c.x() - circle[j].c.x()) + (circle[i].c.y() - circle[j].c.y())*(circle[i].c.y() - circle[j].c.y()));
                     double overlap = 0.5f*(distance - circle[i].r - circle[j].r);
 
-                    circle[i].c.a[0][0] -= overlap * (circle[i].c.a[0][0] - circle[j].c.a[0][0]) / distance;
-                    circle[i].c.a[1][0] -= overlap * (circle[i].c.a[1][0] - circle[j].c.a[1][0]) / distance;
+                    circle[i].c.a[0][0] -= overlap * (circle[i].c.x() - circle[j].c.x()) / distance;
+                    circle[i].c.a[1][0] -= overlap * (circle[i].c.y() - circle[j].c.y()) / distance;
 
-                    circle[j].c.a[0][0] += overlap * (circle[i].c.a[0][0] - circle[j].c.a[0][0]) / distance;
-                    circle[j].c.a[1][0] += overlap * (circle[i].c.a[1][0] - circle[j].c.a[1][0]) / distance;
+                    circle[j].c.a[0][0] += overlap * (circle[i].c.x() - circle[j].c.x()) / distance;
+                    circle[j].c.a[1][0] += overlap * (circle[i].c.y() - circle[j].c.y()) / distance;
 
-
-                    circle[i].move(circle[i].c.x(), circle[i].c.y());
-                    circle[j].move(circle[j].c.x(), circle[j].c.y());
+                    // circle[i].move(circle[i].c.x(), circle[i].c.y());
+                    // circle[j].move(circle[j].c.x(), circle[j].c.y());
                 }
             }
         }
@@ -85,4 +84,9 @@ double GCircle::getcX(GCircle &a)
 double GCircle::getcY(GCircle &a)
 {
     return a.c.y();
+}
+
+Vector3<double> GCircle::getC(GCircle &a)
+{
+    return a.c;
 }

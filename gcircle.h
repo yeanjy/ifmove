@@ -46,14 +46,15 @@ class GCircle: public GMesh2
 
         double getcX(GCircle &a);
         double getcY(GCircle &a);
+        Vector3<double> getC(GCircle &a);
         
+        double ax, ay; //aceleration
+        double vx, vy; //velocity
     private:
         /** center */
         Vector3<double> c;
         /** radius */
         double r; 
-        double ax, ay; //aceleration
-        double vx, vy; //velocity
 };
 
 #endif
