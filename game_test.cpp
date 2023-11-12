@@ -23,7 +23,7 @@ void circlesMovimation(game& g, double dt)
         g.circles[i].move(0, -dt*g.circles[i].vy);
 
         if (GCircle::floorCollision(HEIGHT, g.circles[i]))
-            g.circles[i].move(0, +dt*g.circles[i].vy);
+            g.circles[i].vy *= -1;
     }
 }
 
@@ -51,11 +51,7 @@ int main()
     game1.addCircle(circle4);
     game1.addCircle(circle5);
 
-    for (int i = 0; i < game1.circles.size(); i++)
-    {
-        game1.circles[i].vy = (i+1)*100.0;
-    }
-
+    game1.setVelocity(100);
 
     {
         Window w(WIDTH, HEIGHT);
@@ -97,14 +93,7 @@ int main()
             }
             w.clear();
             game1.draw(w);
-            // circlesMovimation(game1, 1/60);
-            for(int i = 0; i < game1.circles.size(); i++)
-            {
-                game1.circles[i].move(0, -0.01*game1.circles[i].vy);
-
-                if (GCircle::floorCollision(HEIGHT, game1.circles[i]))
-                    game1.circles[i].vy *= -1;
-            }
+            circlesMovimation(game1, 0.01);
             game1.checkCollision(quit);
             w.update();
         } 

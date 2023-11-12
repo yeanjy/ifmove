@@ -28,12 +28,20 @@ void game::checkCollision(bool &a)
     }
 }
 
-void game::update(double dt, bool a)
+void game::updatee(double dt, bool a)
 {
     for (int i = 0; i < circles.size(); i++)
     {
         circles[i].move(0, -dt*circles[i].vy);
         if (a)
-            circles[i].move(0, +dt*circles[i].vy);
+            circles[i].vy *= -1;
+    }
+}
+
+void game::setVelocity(int v)
+{
+    for (int i = 0; i < circles.size(); i++)
+    {
+        circles[i].vy = (i+1)*v;
     }
 }
