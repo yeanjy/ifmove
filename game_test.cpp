@@ -16,6 +16,17 @@ using namespace std;
 #define WIDTH 1200
 #define HEIGHT 800
 
+void circlesMovimation(game& g, double dt)
+{
+    for(int i = 0; i < g.circles.size(); i++)
+    {
+        g.circles[i].move(0, -dt*g.circles[i].vy);
+
+        if (GCircle::floorCollision(HEIGHT, g.circles[i]))
+            g.circles[i].move(0, +dt*g.circles[i].vy);
+    }
+}
+
 int main()
 {
     SDL sdl;
@@ -42,7 +53,7 @@ int main()
 
     for (int i = 0; i < game1.circles.size(); i++)
     {
-        game1.circles[i].vy = 100.0;
+        game1.circles[i].vy = (i+1)*100.0;
     }
 
 
@@ -86,7 +97,15 @@ int main()
             }
             w.clear();
             game1.draw(w);
-            game1.update(1/60);
+            // circlesMovimation(game1, 1/60);
+            for(int i = 0; i < game1.circles.size(); i++)
+            {
+                game1.circles[i].move(0, -0.01*game1.circles[i].vy);
+
+                if (GCircle::floorCollision(HEIGHT, game1.circles[i]))
+                    game1.circles[i].vy *= -1;
+            }
+            game1.checkCollision(quit);
             w.update();
         } 
     } 

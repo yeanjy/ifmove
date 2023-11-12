@@ -24,16 +24,16 @@ void game::checkCollision(bool &a)
     for (int i = 0; i < circles.size(); i++)
     {
         if (GCircle::collision(main, circles[i]))
-            cout << "colidiu" << endl; 
+            a = !a; 
     }
 }
 
-void game::update(double dt)
+void game::update(double dt, bool a)
 {
     for (int i = 0; i < circles.size(); i++)
     {
-        circles[i].move(0, dt*circles[i].vy);
-        // if (GCircle::floorCollision(800, circles[i]))
-        //     circles[i].move(0, -dt*circles[i].vy);
+        circles[i].move(0, -dt*circles[i].vy);
+        if (a)
+            circles[i].move(0, +dt*circles[i].vy);
     }
 }
