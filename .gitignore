@@ -7,4 +7,5 @@ vector3_test
 shape_test
 acceleration_test
 game_test
+MultipleCircleCollision_test
 doc/**
