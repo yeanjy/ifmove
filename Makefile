@@ -3,7 +3,7 @@
 CXX=g++
 CXXFLAGS=-g $(shell pkg-config sdl2 --cflags) 
 SDL_LIBS=$(shell pkg-config sdl2 --libs) 
-EXECUTABLES=matrix_test vector3_test window_test particle_test acceleration_test shape_test game_test
+EXECUTABLES=matrix_test vector3_test window_test particle_test acceleration_test shape_test game_test MultipleCircleCollision_test
 
 all: $(EXECUTABLES)
 
@@ -27,6 +27,10 @@ shape_test: shape_test.cpp sdl.o window.o gcircle.o graphics.o mesh2.o gmesh2.o 
 
 game_test: game_test.cpp sdl.o window.o gcircle.o graphics.o mesh2.o gmesh2.o grid.o particle.o gparticle.o arrow2.o mesh2_utils.o gsquare.o gtriangle.o game.o
 	$(CXX) $(CXXFLAGS) game_test.cpp sdl.o window.o gcircle.o graphics.o mesh2.o gmesh2.o grid.o particle.o gparticle.o arrow2.o mesh2_utils.o gsquare.o gtriangle.o game.o -o game_test $(SDL_LIBS)
+
+MultipleCircleCollision_test: MultipleCircleCollision_test.cpp sdl.o window.o gcircle.o graphics.o mesh2.o gmesh2.o grid.o particle.o gparticle.o arrow2.o mesh2_utils.o gsquare.o gtriangle.o MultiCircleCollision.o
+	$(CXX) $(CXXFLAGS) MultipleCircleCollision_test.cpp sdl.o window.o gcircle.o graphics.o mesh2.o gmesh2.o grid.o particle.o gparticle.o arrow2.o mesh2_utils.o gsquare.o gtriangle.o MultiCircleCollision.o -o MultipleCircleCollision_test $(SDL_LIBS)
+
 doc:
 	doxygen
 
