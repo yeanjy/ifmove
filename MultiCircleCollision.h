@@ -1,5 +1,5 @@
-#ifndef JI_MCIRCLES_JH
-#define JI_MCIRCLES_JH
+#ifndef JI_MULTIPLECIRCLESCOLLISION_JH
+#define JI_MULTIPLECIRCLESCOLLISION_JH
 
 #include <iostream>
 #include <vector>
@@ -10,16 +10,7 @@ using namespace std;
 class mCircles{
     public:
         mCircles();
-        bool wallDetection(int height, int width);
         vector<GCircle> myCircles;
-
-
 };
-
-
-
-
-
-
 
 #endif

@@ -49,6 +49,16 @@ bool GCircle::floorCollision(const int &floor)
         return false;
 }
 
+bool GCircle::wallCollision(const int &height, const int &width)
+{
+    if (c.x() + r >= width/2 || c.x() - r <= -width/2)
+        return true;
+    if(c.y() + r >= height/2 || c.y() - r <= -height/2)
+        return true;
+
+    return false;
+}
+
 void GCircle::multipleCollision(vector<GCircle> circle)
 {
     for (int i = 0; i < circle.size(); i++)
@@ -89,4 +99,9 @@ double GCircle::getcY()
 Vector3<double> GCircle::getC()
 {
     return c;
+}
+
+double GCircle::getR()
+{
+    return r;
 }
