@@ -13,7 +13,6 @@ public:
     void checkCollision(bool &a);
     void draw(Window &window);
     void addCircle (GCircle &circle);
-    void updatee(double dt, bool a);
     void setVelocity(int v);
 
     GCircle main{Vector3<double>{0, 0, 1.0f}, 30, 100};

@@ -22,7 +22,7 @@ void circlesMovimation(game& g, double dt)
     {
         g.circles[i].move(0, -dt*g.circles[i].vy);
 
-        if (GCircle::floorCollision(HEIGHT, g.circles[i]))
+        if (g.circles[i].floorCollision(HEIGHT))
             g.circles[i].vy *= -1;
     }
 }

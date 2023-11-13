@@ -40,7 +40,7 @@ class GCircle: public GMesh2
         void move(double x, double y);
         void imprimir();
         static bool collision(GCircle &a, GCircle &b);
-        static bool floorCollision(const int &floor, GCircle &a);
+        bool floorCollision(const int &floor);
         static void multipleCollision(vector<GCircle> circle);
         static void update(GCircle &a);
 
