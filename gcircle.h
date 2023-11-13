@@ -43,7 +43,6 @@ class GCircle: public GMesh2
         bool wallCollision(const int &height, const int &width);
         static bool collision(GCircle &a, GCircle &b);
         static void multipleCollision(vector<GCircle> circle);
-        static void update(GCircle &a);
 
         double getcX();
         double getcY();

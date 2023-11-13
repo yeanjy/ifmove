@@ -18,14 +18,6 @@ void GCircle::move(double x, double y)
     Mesh2::transform(translate);
 }
 
-void GCircle::update(GCircle &a)
-{
-    Matrix<double> translate = Matrix<double>::identity(3);
-    translate.a[0][2] = a.c.x();
-    translate.a[1][2] = a.c.y();
-    // Mesh2::transform(translate);
-}
-
 void GCircle::imprimir()
 {
     cout << c << endl;
