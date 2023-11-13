@@ -76,17 +76,17 @@ void GCircle::multipleCollision(vector<GCircle> circle)
     }
 }
 
-double GCircle::getcX(GCircle &a)
+double GCircle::getcX()
 {
-    return a.c.x();
+    return c.x();
 }
 
-double GCircle::getcY(GCircle &a)
+double GCircle::getcY()
 {
-    return a.c.y();
+    return c.y();
 }
 
-Vector3<double> GCircle::getC(GCircle &a)
+Vector3<double> GCircle::getC()
 {
-    return a.c;
+    return c;
 }

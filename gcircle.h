@@ -44,9 +44,9 @@ class GCircle: public GMesh2
         static void multipleCollision(vector<GCircle> circle);
         static void update(GCircle &a);
 
-        double getcX(GCircle &a);
-        double getcY(GCircle &a);
-        Vector3<double> getC(GCircle &a);
+        double getcX();
+        double getcY();
+        Vector3<double> getC();
         
         double ax, ay; //aceleration
         double vx, vy; //velocity
