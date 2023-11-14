@@ -3,7 +3,7 @@
 mCircles::mCircles()
 {}
 
-void mCircles::draw(Window w)
+void mCircles::draw(Window &w)
 {
     for (int i = 0; i < Circles.size(); i++)
     {
@@ -13,9 +13,18 @@ void mCircles::draw(Window w)
 
 vector<GCircle> mCircles::createBalls(int n, const int &height, const int &width, double r)
 {
+    std::uniform_real_distribution<double> distX(-width/2, width/2);
+    std::uniform_real_distribution<double> distY(-height/2, height/2);
+
     for (int i = 0; i < n; i++)
     {
-        Circles.emplace_back(Vector3<double>{static_cast<double>(rand() % width), static_cast<double>(rand() % height), 1.f}, r);
+        double x = distX(gen); 
+        double y = distY(gen); 
+
+        Circles.emplace_back(Vector3<double>{x, y, 1.f}, r);
     }
     return Circles;
 }
+
+std::random_device mCircles::rd;
+std::mt19937 mCircles::gen(mCircles::rd());

@@ -54,11 +54,6 @@ int main()
             }
             w.clear();
             mcircle.draw(w);
-            for (int i = 0; i < mcircle.Circles.size(); i++)
-            {    
-                mcircle.Circles[i].imprimir();
-                // cout << mcircle.Circles[i].getR() << endl;
-            }
             w.update();
         } 
     } 
