@@ -36,14 +36,14 @@ Window::~Window()
 
 void Window::drawLine(int ix, int iy, int fx, int fy)
 {
-    _drawLine(Vector3<double>{ix, iy, 1.0f}, Vector3<double>{fx, fy, 1.0f});
+    _drawLine(Vector3<double>{static_cast<double>(ix), static_cast<double>(iy), 1.0f}, Vector3<double>{static_cast<double>(fx), static_cast<double>(fy), 1.0f});
 }
 
 void Window::drawLine(int ix, int iy, int fx, int fy, 
     const RGBA<unsigned char> &rgba)
 {
-    drawLine(Vector3<double>{ix, iy, 1.0f}, 
-        Vector3<double>{fx, fy, 1.0f}, rgba);
+    drawLine(Vector3<double>{static_cast<double>(ix), static_cast<double>(iy), 1.0f}, 
+        Vector3<double>{static_cast<double>(fx), static_cast<double>(fy), 1.0f}, rgba);
 }
 
 void Window::drawLine(const Vector3<double> &i, const Vector3<double> &f)
