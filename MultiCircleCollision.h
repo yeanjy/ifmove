@@ -10,7 +10,10 @@ using namespace std;
 class mCircles{
     public:
         mCircles();
-        vector<GCircle> myCircles;
+        void draw(Window w);
+        vector<GCircle> createBalls(int n, const int &height, const int &width, double r);
+
+        vector<GCircle> Circles;
 };
 
 #endif

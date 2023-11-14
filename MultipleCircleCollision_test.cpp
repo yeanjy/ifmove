@@ -22,10 +22,14 @@ int main()
 {
     SDL sdl;
 
+
     bool quit = false;
 
     SDL_Event e;
 
+    mCircles mcircle{};
+
+    mcircle.createBalls(20, HEIGHT, WIDTH, 50);
     {
         Window w(WIDTH, HEIGHT);
         Matrix<double> transform = w.transform();
@@ -49,6 +53,12 @@ int main()
                 }
             }
             w.clear();
+            mcircle.draw(w);
+            for (int i = 0; i < mcircle.Circles.size(); i++)
+            {    
+                mcircle.Circles[i].imprimir();
+                // cout << mcircle.Circles[i].getR() << endl;
+            }
             w.update();
         } 
     } 
