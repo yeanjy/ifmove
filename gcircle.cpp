@@ -31,24 +31,14 @@ bool GCircle::collision(GCircle &a, GCircle &b)
     return distance <= sumRadii;
 }
 
-bool GCircle::floorCollision(const int &floor)
+bool GCircle::floorCollision(const int &height)
 {
-    if (c.y() + r >= floor/2)
+    if (c.y() + r >= height/2)
         return true;        
-    else if (c.y() - r <= -floor/2)
+    else if (c.y() - r <= -height/2)
         return true;
     else    
         return false;
-}
-
-bool GCircle::wallCollision(const int &height, const int &width)
-{
-    if (c.x() + r >= width/2 || c.x() - r <= -width/2)
-        return true;
-    if(c.y() + r >= height/2 || c.y() - r <= -height/2)
-        return true;
-
-    return false;
 }
 
 void GCircle::multipleCollision(vector<GCircle> &circle)
@@ -68,6 +58,30 @@ void GCircle::multipleCollision(vector<GCircle> &circle)
                     circle[j].move(overlap * (circle[i].c.x() - circle[j].c.x()) / distance, overlap * (circle[i].c.y() - circle[j].c.y()) / distance);
                 }
             }
+        }
+    }
+}
+
+void GCircle::checkWallColision(vector<GCircle> &circle, const int &width, const int &height)
+{
+    for (int i = 0; i<circle.size(); i++)
+    {
+        if (circle[i].c.x() + circle[i].r >= width/2)
+        {
+            circle[i].move(-(circle[i].c.x() - (width/2 - circle[i].r)), 0);
+        }
+
+        if (circle[i].c.x() - circle[i].r <= -width/2)
+        {
+            circle[i].move((-circle[i].c.x() + (-width/2 + circle[i].r)), 0);
+        }
+        if(circle[i].c.y() + circle[i].r >= height/2)
+        {
+            circle[i].move(0, -(circle[i].c.y() - (height/2 - circle[i].r)));
+        }
+        if(circle[i].c.y() - circle[i].r <= -height/2)
+        {
+            circle[i].move(0, (-circle[i].c.y() + (-height/2 + circle[i].r)));
         }
     }
 }

@@ -70,6 +70,7 @@ int main()
             }
             w.clear();
             mcircle.draw(w);
+            GCircle::checkWallColision(mcircle.Circles, WIDTH, HEIGHT);
             GCircle::multipleCollision(mcircle.Circles);
             w.update();
         } 

@@ -39,8 +39,8 @@ class GCircle: public GMesh2
 
         void move(double x, double y);
         void imprimir();
-        bool floorCollision(const int &floor);
-        bool wallCollision(const int &height, const int &width);
+        bool floorCollision(const int &height);
+        static void checkWallColision(vector<GCircle> &circle, const int &width, const int &height);
         static bool collision(GCircle &a, GCircle &b);
         static void multipleCollision(vector<GCircle> &circle);
 
