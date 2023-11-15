@@ -30,7 +30,7 @@ int main()
 
     mcircle.createBalls(10, HEIGHT, WIDTH, 50);
 
-    mcircle.setInfo(100, 100, 50);
+    mcircle.setInfo(80, 80, 40);
     {
         Window w(WIDTH, HEIGHT);
         Matrix<double> transform = w.transform();

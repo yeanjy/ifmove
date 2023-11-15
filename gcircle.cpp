@@ -75,10 +75,10 @@ void GCircle::multipleCollision(vector<GCircle> &circle)
                     double m1 = (dpNorm1*(circle[i].mass - circle[j].mass)) + 2.f*circle[j].mass*dpNorm2 / (circle[i].mass + circle[j].mass);
                     double m2 = (dpNorm2*(circle[j].mass - circle[i].mass)) + 2.f*circle[i].mass*dpNorm1 / (circle[i].mass + circle[j].mass);
 
-                    // circle[i].vx = tx*dpTan1 + nx*m1;
-                    // circle[i].vy = ty*dpTan1 + ny*m1;
-                    // circle[j].vx = tx*dpTan2 + nx*m2;
-                    // circle[j].vy = ty*dpTan2 + nx*m2;
+                    circle[i].vx = tx*dpTan1 + nx*m1;
+                    circle[i].vy = ty*dpTan1 + ny*m1;
+                    circle[j].vx = tx*dpTan2 + nx*m2;
+                    circle[j].vy = ty*dpTan2 + nx*m2;
                 }
             }
         }
