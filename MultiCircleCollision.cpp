@@ -26,5 +26,15 @@ vector<GCircle> mCircles::createBalls(int n, const int &height, const int &width
     return Circles;
 }
 
+void mCircles::setInfo(double vx, double vy, double mass)
+{
+    for (int i = 0; i < Circles.size(); i++)
+    {
+        Circles[i].vx = vx;
+        Circles[i].vy = vy;
+        Circles[i].mass = mass;
+    }
+}
+
 std::random_device mCircles::rd;
 std::mt19937 mCircles::gen(mCircles::rd());

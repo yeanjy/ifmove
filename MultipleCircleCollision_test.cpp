@@ -22,7 +22,6 @@ int main()
 {
     SDL sdl;
 
-
     bool quit = false;
 
     SDL_Event e;
@@ -30,6 +29,8 @@ int main()
     mCircles mcircle{};
 
     mcircle.createBalls(20, HEIGHT, WIDTH, 50);
+
+    mcircle.setInfo(100, 100, 50);
     {
         Window w(WIDTH, HEIGHT);
         Matrix<double> transform = w.transform();
@@ -72,6 +73,7 @@ int main()
             mcircle.draw(w);
             GCircle::checkWallColision(mcircle.Circles, WIDTH, HEIGHT);
             GCircle::multipleCollision(mcircle.Circles);
+            GCircle::updatePosition(mcircle.Circles, 0.01);
             w.update();
         } 
     } 

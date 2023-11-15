@@ -40,17 +40,20 @@ class GCircle: public GMesh2
         void move(double x, double y);
         void imprimir();
         bool floorCollision(const int &height);
-        static void checkWallColision(vector<GCircle> &circle, const int &width, const int &height);
         static bool collision(GCircle &a, GCircle &b);
+        static void checkWallColision(vector<GCircle> &circle, const int &width, const int &height);
         static void multipleCollision(vector<GCircle> &circle);
+        static double calculateDistance(GCircle &a, GCircle &b);
+        static void updatePosition(vector<GCircle> &circle, double dt);
 
         double getcX();
         double getcY();
         double getR();
         Vector3<double> getC();
         
-        double ax, ay; //aceleration
-        double vx, vy; //velocity
+        double vx, vy;
+        double mass;
+
     private:
         /** center */
         Vector3<double> c;

@@ -69,21 +69,38 @@ void GCircle::checkWallColision(vector<GCircle> &circle, const int &width, const
         if (circle[i].c.x() + circle[i].r >= width/2)
         {
             circle[i].move(-(circle[i].c.x() - (width/2 - circle[i].r)), 0);
+            circle[i].vx *= -1;
         }
 
         if (circle[i].c.x() - circle[i].r <= -width/2)
         {
             circle[i].move((-circle[i].c.x() + (-width/2 + circle[i].r)), 0);
+            circle[i].vx *= -1;
         }
         if(circle[i].c.y() + circle[i].r >= height/2)
         {
             circle[i].move(0, -(circle[i].c.y() - (height/2 - circle[i].r)));
+            circle[i].vy *= -1;
         }
         if(circle[i].c.y() - circle[i].r <= -height/2)
         {
             circle[i].move(0, (-circle[i].c.y() + (-height/2 + circle[i].r)));
+            circle[i].vy *= -1;
         }
     }
+}
+
+void GCircle::updatePosition(vector<GCircle> &circle, double dt)
+{
+    for (auto &c : circle )
+    {
+        c.move(c.vx*dt, c.vy*dt);
+    }
+}
+
+double GCircle::calculateDistance(GCircle &a, GCircle &b)
+{
+    return sqrt((a.c.x() - b.c.x())*(a.c.x() - b.c.x()) + (a.c.y() - b.c.y())*(a.c.y() - b.c.y()));
 }
 
 double GCircle::getcX()
