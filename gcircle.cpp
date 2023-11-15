@@ -66,11 +66,11 @@ void GCircle::multipleCollision(vector<GCircle> &circle)
                     double tx = -ny;
                     double ty = nx;
 
-                    double dpTan1 = circle[i].c.x()*tx + circle[i].c.y()*ty;
-                    double dpTan2 = circle[j].c.x()*tx + circle[j].c.y()*ty;
+                    double dpTan1 = circle[i].vx*tx + circle[i].vy*ty;
+                    double dpTan2 = circle[j].vx*tx + circle[j].vy*ty;
 
-                    double dpNorm1 = circle[i].c.x()*nx + circle[i].c.y()*ny;
-                    double dpNorm2 = circle[j].c.x()*nx + circle[j].c.y()*ny;
+                    double dpNorm1 = circle[i].vx*nx + circle[i].vy*ny;
+                    double dpNorm2 = circle[j].vx*nx + circle[j].vy*ny;
 
                     double m1 = (dpNorm1*(circle[i].mass - circle[j].mass)) + 2.f*circle[j].mass*dpNorm2 / (circle[i].mass + circle[j].mass);
                     double m2 = (dpNorm2*(circle[j].mass - circle[i].mass)) + 2.f*circle[i].mass*dpNorm1 / (circle[i].mass + circle[j].mass);
@@ -117,6 +117,8 @@ void GCircle::updatePosition(vector<GCircle> &circle, double dt)
 {
    for (auto &c : circle)
     {
+        c.vx += c.ax * dt;
+        c.vy += c.ay * dt;
         c.move(c.vx*dt, c.vy*dt);
     }
 }

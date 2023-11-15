@@ -53,6 +53,7 @@ class GCircle: public GMesh2
         
         double vx, vy;
         double mass;
+        double ax, ay;
 
     private:
         /** center */
