@@ -26,7 +26,7 @@ vector<GCircle> mCircles::createBalls(int n, const int &height, const int &width
     return Circles;
 }
 
-void mCircles::setInfo(double vx, double vy, double ax, double ay, double mass)
+void mCircles::setInfo(double vx, double vy, double ax, double ay)
 {
     for (int i = 0; i < Circles.size(); i++)
     {
@@ -34,7 +34,7 @@ void mCircles::setInfo(double vx, double vy, double ax, double ay, double mass)
         Circles[i].vy = vy;
         Circles[i].ax = ax;
         Circles[i].ay = ay;
-        Circles[i].mass = mass;
+        Circles[i].mass = 10*Circles[i].getR();
     }
 }
 

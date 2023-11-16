@@ -30,7 +30,7 @@ int main()
 
     mcircle.createBalls(10, HEIGHT, WIDTH, 50);
 
-    mcircle.setInfo(80, 80, 10, 10, 800);
+    mcircle.setInfo(220, 220, 0, 0);
     {
         Window w(WIDTH, HEIGHT);
         Matrix<double> transform = w.transform();
@@ -73,7 +73,7 @@ int main()
             mcircle.draw(w);
             GCircle::checkWallColision(mcircle.Circles, WIDTH, HEIGHT);
             GCircle::multipleCollision(mcircle.Circles);
-            GCircle::updatePosition(mcircle.Circles, 0.01);
+            GCircle::updatePosition(mcircle.Circles, 0.001);
             w.update();
         } 
     } 

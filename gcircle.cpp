@@ -63,22 +63,31 @@ void GCircle::multipleCollision(vector<GCircle> &circle)
                     double nx = (circle[j].c.x() - circle[i].c.x())/fdistance;
                     double ny = (circle[j].c.y() - circle[i].c.y())/fdistance;
 
-                    double tx = -ny;
-                    double ty = nx;
+                    // double tx = -ny;
+                    // double ty = nx;
 
-                    double dpTan1 = circle[i].vx*tx + circle[i].vy*ty;
-                    double dpTan2 = circle[j].vx*tx + circle[j].vy*ty;
+                    // double dpTan1 = circle[i].vx*tx + circle[i].vy*ty;
+                    // double dpTan2 = circle[j].vx*tx + circle[j].vy*ty;
 
-                    double dpNorm1 = circle[i].vx*nx + circle[i].vy*ny;
-                    double dpNorm2 = circle[j].vx*nx + circle[j].vy*ny;
+                    // double dpNorm1 = circle[i].vx*nx + circle[i].vy*ny;
+                    // double dpNorm2 = circle[j].vx*nx + circle[j].vy*ny;
 
-                    double m1 = (dpNorm1*(circle[i].mass - circle[j].mass)) + 2.f*circle[j].mass*dpNorm2 / (circle[i].mass + circle[j].mass);
-                    double m2 = (dpNorm2*(circle[j].mass - circle[i].mass)) + 2.f*circle[i].mass*dpNorm1 / (circle[i].mass + circle[j].mass);
+                    // double m1 = ((dpNorm1*(circle[i].mass - circle[j].mass)) + 2.f*circle[j].mass*dpNorm2) / (circle[i].mass + circle[j].mass);
+                    // double m2 = ((dpNorm2*(circle[j].mass - circle[i].mass)) + 2.f*circle[i].mass*dpNorm1) / (circle[i].mass + circle[j].mass);
 
-                    circle[i].vx = tx*dpTan1 + nx*m1;
-                    circle[i].vy = ty*dpTan1 + ny*m1;
-                    circle[j].vx = tx*dpTan2 + nx*m2;
-                    circle[j].vy = ty*dpTan2 + nx*m2;
+                    // circle[i].vx = tx*dpTan1 + nx*m1;
+                    // circle[i].vy = ty*dpTan1 + ny*m1;
+                    // circle[j].vx = tx*dpTan2 + nx*m2;
+                    // circle[j].vy = ty*dpTan2 + nx*m2;
+
+                    double kx = (circle[i].vx - circle[j].vx);
+                    double ky = (circle[i].vy - circle[j].vy);
+                    double p = 2.0*(nx*kx + ny*ky) / (circle[i].mass + circle[j].mass);
+                    circle[i].vx -= p*circle[j].mass * nx;
+                    circle[i].vy -= p*circle[j].mass * ny;
+
+                    circle[j].vx += p*circle[i].mass * nx;
+                    circle[j].vy += p*circle[i].mass * ny;
                 }
             }
         }
@@ -119,7 +128,7 @@ void GCircle::updatePosition(vector<GCircle> &circle, double dt)
     {
         c.vx += c.ax * dt;
         c.vy += c.ay * dt;
-        c.move(c.vx*dt, c.vy*dt);
+        c.move(c.vx * dt, c.vy * dt);
     }
 }
 
