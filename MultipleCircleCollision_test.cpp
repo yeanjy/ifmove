@@ -51,22 +51,6 @@ int main()
                 {       
                     if (e.key.keysym.sym == SDLK_q)
                         quit = true;
-                    if (e.key.keysym.sym == SDLK_UP)
-                    { 
-                        mcircle.Circles[1].move(0, 10);
-                    }
-                    if (e.key.keysym.sym == SDLK_DOWN)
-                    { 
-                        mcircle.Circles[1].move(0, -10);
-                    }
-                    if (e.key.keysym.sym == SDLK_LEFT)
-                    { 
-                        mcircle.Circles[1].move(-10, 0);
-                    }
-                    if (e.key.keysym.sym == SDLK_RIGHT)
-                    { 
-                        mcircle.Circles[1].move(+10, 0);
-                    }
                 }
             }
             w.clear();
