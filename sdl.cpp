@@ -11,7 +11,7 @@ SDL::SDL()
 
 SDL::~SDL()
 {
-    cout << "~SDL() called" << endl;
+    // cout << "~SDL() called" << endl;
     quit();
 }
 

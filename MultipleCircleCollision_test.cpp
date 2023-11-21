@@ -28,7 +28,7 @@ int main()
 
     mCircles mcircle{};
 
-    mcircle.createBalls(10, HEIGHT, WIDTH, 50);
+    mcircle.createBalls(20, HEIGHT, WIDTH);
 
     mcircle.setInfo(220, 220, 0, 0);
     {

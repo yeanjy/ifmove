@@ -13,7 +13,7 @@ class mCircles{
         mCircles();
         void draw(Window &w);
         void setInfo(double vx, double vy, double ax, double ay);
-        vector<GCircle> createBalls(int n, const int &height, const int &width, double r);
+        vector<GCircle> createBalls(int n, const int &height, const int &width);
 
         vector<GCircle> Circles;
     private:

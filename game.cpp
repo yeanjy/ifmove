@@ -19,13 +19,23 @@ void game::addCircle (GCircle &circle)
     circles.push_back(circle);
 }
 
-void game::checkCollision(bool &a)
+void game::checkCollision(bool &a, const int& width)
 {
     for (int i = 0; i < circles.size(); i++)
     {
         if (GCircle::collision(main, circles[i]))
-            a = !a; 
+        {
+            a = !a;
+            cout << "You lost" << endl;
+        }
+
     }
+
+    if (main.getcX() == width/2)
+    {
+        a = !a;
+        cout << "You win" << endl;
+    } 
 }
 
 void game::setVelocity(int v)

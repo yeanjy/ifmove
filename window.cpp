@@ -29,7 +29,7 @@ Window::Window(int width, int height):
 
 Window::~Window()
 {
-    cout << "~Window() called" << endl;
+    // cout << "~Window() called" << endl;
     //Destroy window
     SDL_DestroyWindow(window);
 }
