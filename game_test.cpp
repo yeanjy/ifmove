@@ -94,6 +94,7 @@ int main()
             w.clear();
             game1.draw(w);
             circlesMovimation(game1, 0.01);
+            game1.checkWallColision(WIDTH, HEIGHT);
             game1.checkCollision(quit, WIDTH);
             w.update();
         } 

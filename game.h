@@ -14,6 +14,7 @@ public:
     void draw(Window &window);
     void addCircle (GCircle &circle);
     void setVelocity(int v);
+    void checkWallColision(const int &width, const int &height);
 
     GCircle main{Vector3<double>{0, 0, 1.0f}, 30, 100};
     vector<GCircle> circles;

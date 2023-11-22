@@ -14,6 +14,9 @@ class mCircles{
         void draw(Window &w);
         void setInfo(double vx, double vy, double ax, double ay);
         vector<GCircle> createBalls(int n, const int &height, const int &width);
+        static void checkWallColision(vector<GCircle> &circle, const int &width, const int &height);
+        static void multipleCollision(vector<GCircle> &circle);
+        static void updatePosition(vector<GCircle> &circle, double dt);
 
         vector<GCircle> Circles;
     private:

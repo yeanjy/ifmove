@@ -55,9 +55,9 @@ int main()
             }
             w.clear();
             mcircle.draw(w);
-            GCircle::checkWallColision(mcircle.Circles, WIDTH, HEIGHT);
-            GCircle::multipleCollision(mcircle.Circles);
-            GCircle::updatePosition(mcircle.Circles, 0.001);
+            mCircles::checkWallColision(mcircle.Circles, WIDTH, HEIGHT);
+            mCircles::multipleCollision(mcircle.Circles);
+            mCircles::updatePosition(mcircle.Circles, 0.001);
             w.update();
         } 
     } 

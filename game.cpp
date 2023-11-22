@@ -45,3 +45,23 @@ void game::setVelocity(int v)
         circles[i].vy = (i+1)*v;
     }
 }
+
+void game::checkWallColision(const int &width, const int &height)
+{
+    if (main.c.x() + main.r >= width/2)
+    {
+        main.move(-(main.c.x() - (width/2 - main.r)), 0);
+    }
+    if (main.c.x() - main.r <= -width/2)
+    {
+        main.move((-main.c.x() + (-width/2 + main.r)), 0);
+    }
+    if(main.c.y() + main.r >= height/2)
+    {
+        main.move(0, -(main.c.y() - (height/2 - main.r)));
+    }
+    if(main.c.y() - main.r <= -height/2)
+    {
+        main.move(0, (-main.c.y() + (-height/2 + main.r)));
+    }
+}
