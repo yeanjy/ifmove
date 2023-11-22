@@ -31,7 +31,7 @@ void game::checkCollision(bool &a, const int& width)
 
     }
 
-    if (main.getcX() == width/2)
+    if (main.c.x() == width/2)
     {
         a = !a;
         cout << "You win" << endl;
