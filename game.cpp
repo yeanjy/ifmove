@@ -28,7 +28,6 @@ void game::checkCollision(bool &a, const int& width)
             a = !a;
             cout << "You lost" << endl;
         }
-
     }
 
     if (main.c.x() == width/2 - main.r)
