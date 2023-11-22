@@ -51,7 +51,7 @@ int main()
     game1.addCircle(circle4);
     game1.addCircle(circle5);
 
-    game1.setVelocity(100);
+    game1.setVelocity(10);
 
     {
         Window w(WIDTH, HEIGHT);
