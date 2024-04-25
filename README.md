@@ -16,5 +16,6 @@ make doc
 ## Para compilar os programas de teste
 
 ```bash
+cmake .
 make -j4
 
