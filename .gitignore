@@ -1,11 +1,20 @@
-*.o
-matrix_test
-particle_test
-window_test
-vector3_test
-.vscode/
-shape_test
-acceleration_test
-game_test
-MultipleCircleCollision_test
-doc/**
+# CMake
+CMakeFiles/
+Makefile
+cmake_install.cmake
+CMakeCache.txt
+compile_commands.json
+# CMake Doxygen
+CMakeDoxyfile.in
+CMakeDoxygenDefaults.cmake
+
+# Documentation
+doc/
+
+# Library and binary folders
+lib/
+bin/
+
+# clangd
+.cache/
+.clangd/
