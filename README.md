@@ -17,7 +17,4 @@ make doc
 
 ```bash
 make -j4
-./MultipleCircleCollision_test
-#ou
-./game_test
-```
+
